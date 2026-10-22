@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AQA GCSE D&amp;T – Core Technical Principles Revision</title>
+<script>try{var s=localStorage.getItem('dtheme');document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(e){}</script>
+<style>
+:root{--bg:#121315;--panel:#1b1d20;--line:#2c2f34;--text:#e6e7e9;--body:#d3d5d9;--mute:#9a9ea6;--acc:#5fb3a1;--onacc:#0c1513;--fb:#17191c;--bad:#e07a7a;--ok:#6cc287;color-scheme:dark}
+:root[data-theme=light]{--bg:#f6f6f3;--panel:#ffffff;--line:#d8dadf;--text:#1b1d20;--body:#30343a;--mute:#5d626a;--acc:#1b7563;--onacc:#ffffff;--fb:#f0f1f3;--bad:#b83a3a;--ok:#1d8049;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+nav{max-width:860px;margin:0 auto;padding:.7rem 1rem;display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center}
+nav b{margin-right:auto;font-weight:600}
+nav a{color:var(--mute);text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--text);border-color:var(--acc)}
+main{max-width:860px;margin:0 auto;padding:1.5rem 1rem 4rem}
+h1{font-size:1.6rem;margin:.2rem 0 .4rem}h2{font-size:1.25rem;margin:2rem 0 .5rem}h3{font-size:1.05rem;margin:1.4rem 0 .3rem;color:var(--acc)}
+p,li{color:var(--body)}ul{padding-left:1.1rem;list-style:'›  '}li{margin:.25rem 0}li::marker{color:var(--acc)}
+.mute{color:var(--mute);font-size:.92rem}
+.list{display:grid;gap:.6rem}
+.row{display:flex;justify-content:space-between;gap:1rem;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;text-decoration:none;color:var(--text)}
+.row:hover{border-color:var(--acc)}
+.tag{font-size:.8rem;color:var(--mute);white-space:nowrap}
+.tag.done{color:var(--ok)}
+button,select,textarea,input[type=text]{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.5rem .8rem}
+button{cursor:pointer}button:hover{border-color:var(--acc)}
+button.pri{background:var(--acc);color:var(--onacc);border-color:var(--acc);font-weight:600}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+table{border-collapse:collapse;width:100%;margin:.6rem 0;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:.4rem .6rem;text-align:left;vertical-align:top}th{background:var(--panel)}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1rem;margin:1rem 0}
+.recap{border-left:3px solid var(--acc);background:var(--panel);padding:.7rem 1rem;margin:1.4rem 0;border-radius:0 8px 8px 0}
+.confuse{border-left:3px solid #c9a35b;background:var(--panel);padding:.7rem 1rem;margin:1rem 0;border-radius:0 8px 8px 0}
+.gap{border-left:3px solid #8a8fe0;background:var(--panel);padding:.7rem 1rem;margin:1rem 0;border-radius:0 8px 8px 0;font-size:.93rem}
+details{margin:.5rem 0}summary{cursor:pointer;color:var(--acc)}
+.opt{display:block;width:100%;text-align:left;margin:.4rem 0}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.fb{margin:.8rem 0;padding:.6rem .9rem;border-radius:6px;background:var(--fb);border:1px solid var(--line)}
+.fb.ok{border-color:var(--ok)}.fb.no{border-color:var(--bad)}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1rem;margin:1rem 0}
+.q textarea{width:100%;min-height:90px;margin:.6rem 0}
+.badge{display:inline-block;font-size:.75rem;border:1px solid var(--line);border-radius:99px;padding:.05rem .6rem;margin-right:.4rem;color:var(--mute)}
+.badge.real{border-color:var(--acc);color:var(--acc)}
+.bar{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin:.8rem 0}
+.hide{display:none}
+@media(max-width:520px){h1{font-size:1.35rem}.row{flex-direction:column;align-items:flex-start;gap:.2rem}}
+</style>
+</head>
+<body>
+<header><nav aria-label="Main"><b>D&amp;T Revision</b>
+<a href="#/" data-n="home">Topics</a><a href="#/quizzes" data-n="quizzes">Quizzes</a><a href="#/exam" data-n="exam">Exam Practice</a><button id="theme" aria-label="Switch between light and dark mode"></button></nav></header>
+<main id="app"></main>
+
+<script>
+/* ============ CONTENT ============ */
+const MS22 = {label:"AQA 8552/W June 2022 – official mark scheme", url:"https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-8552W-MS-JUN22.PDF"};
+const T = [
+{id:"industry", title:"Industry and enterprise", spec:"3.1.1", notes:`
+<h3>Technology in industry</h3>
+<ul>
+<li><b>Industrial revolution (c.1780):</b> steam power, early automation</li>
+<li><b>Digital revolution (c.1940):</b> computers → globalisation, faster comms, more productivity and accuracy</li>
+<li><b>Robots:</b> consistent, accurate, reliable, productive → jobs lost, new jobs created</li>
+<li><b>Layout</b> must follow workflow (new tech = redesign the production line)</li>
+<li><b>3D printing:</b> hollow + moving parts; bioprinting (skin, cartilage). Risk: printed guns</li>
+<li><b>Graphene:</b> 1 atom thick, ~200× stronger than steel</li>
+<li><b>Oil running out</b> → hydrogen, batteries. EVs need charging network, battery tech, driver mindset</li>
+</ul>
+<table><tr><th>Barcode</th><th>Characters</th><th>Used for</th></tr>
+<tr><td>UPC-A</td><td>Numbers only</td><td>EPOS, warehousing</td></tr>
+<tr><td>Code 128</td><td>Letters + numbers</td><td>Shipment tracking</td></tr></table>
+<h3>Enterprise</h3>
+<table><tr><th>Term</th><th>Key point</th></tr>
+<tr><td>Crowdfunding</td><td>Many individuals invest in an idea (POD Point: £1.8m from 618 people)</td></tr>
+<tr><td>Virtual marketing</td><td>SEO, email, social media, viral (e.g. GoPro)</td></tr>
+<tr><td>AR / VR retail</td><td>Try clothes on / place furniture at home virtually</td></tr>
+<tr><td>Co-operative</td><td>Owned and run by members; <b>profits shared</b></td></tr>
+<tr><td>Fairtrade</td><td>Fair prices, conditions, terms for farmers in poorer countries + <b>Premium</b> for their communities</td></tr></table>
+<p><b>Small firms use tech to compete:</b> pro CAD tools · <b>on-demand production</b> (no stock costs) · remote teams · social media · crowdfunding</p>
+<div class="confuse"><b>Don't mix up:</b> co-op = ownership · Fairtrade = fair treatment of producers</div>
+<div class="recap"><b>Recap:</b> Robots = consistency + productivity. Layout follows workflow. Small firms: on-demand, social media, crowdfunding.</div>`,
+quiz:[
+{t:"mcq",q:"Which barcode system can encode letters as well as numbers and is used in shipment tracking?",o:["UPC-A","Code 128","EPOS","Fairtrade"],a:1,e:"Code 128 handles letters and numbers. UPC-A is numeric only and used in EPOS and warehousing."},
+{t:"tf",q:"Fairtrade aims to give farmers in less economically developed countries better prices and decent working conditions.",a:true,e:"Yes – plus a Fairtrade Premium to invest in their communities."},
+{t:"fill",q:"A ___ is a business owned and run by its members, who share the profits.",a:["co-operative","cooperative","co-op","coop"],e:"A co-operative."},
+{t:"mcq",q:"How does on-demand production help a small enterprise?",o:["It avoids the cost of holding stock","It removes the need to design products","It guarantees every product sells","It makes marketing unnecessary"],a:0,e:"Products are made when ordered, so there is no stock to pay to store."},
+{t:"mcq",q:"Which is an example of virtual marketing?",o:["Search engine optimisation","Newspaper advert","Roadside billboard","Leaflet drop"],a:0,e:"SEO, email, social media and viral campaigns are virtual marketing."}
+],
+exam:[
+{id:"ind1",src:"orig",q:"State two benefits to a manufacturer of using robots on a production line.",marks:2,model:"Any two: greater consistency; greater accuracy; greater reliability (can work continuously); higher productivity; can replace costly or repetitive manual jobs (saves labour costs)."},
+{id:"ind2",src:"orig",q:"A small start-up has designed a new electric scooter but has little money. Explain how crowdfunding and social media could help it become a business.",marks:4,model:"Crowdfunding raises start-up investment from many individuals who believe in the idea, without needing one large investor (1) – e.g. POD Point raised £1.8m from 618 people (1). Social media reaches a very large audience for a small marketing budget (1); campaigns can go viral, building brand awareness and pre-orders that prove demand (1)."}
+]},
+
+{id:"sustain", title:"Sustainability and the environment", spec:"3.1.1", notes:`
+<h3>Resources</h3>
+<ul>
+<li><b>Finite:</b> used faster than replaced (coal, gas, oil)</li>
+<li><b>Non-finite:</b> unlikely to run out (slides: oxygen, fresh water, timber, leather)</li>
+<li><b>Renewable energy:</b> wind, wave, solar, geothermal, tidal, biomass</li>
+</ul>
+<h3>Responsible design – ask:</h3>
+<ul>
+<li>Non-renewable energy used? Toxic by-products? CO<sub>2</sub> emitted?</li>
+<li>Mining/harvesting damage? Transport distance?</li>
+<li>Repairable? Worker welfare? <b>Recyclable</b> at end of life?</li>
+</ul>
+<h3>Waste disposal</h3>
+<table><tr><th>Method</th><th>Impact</th></tr>
+<tr><td>Incineration</td><td>CO<sub>2</sub> / fumes</td></tr>
+<tr><td>Landfill</td><td>Uses land; chemicals leach into soil and water</td></tr>
+<tr><td>Dumping at sea</td><td>Pollutes oceans, harms wildlife</td></tr>
+<tr><td>Recycling</td><td>Saves materials + energy ✓</td></tr></table>
+<h3>Key ideas</h3>
+<table><tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Ecological + social footprint</td><td>Impact at every stage: materials → making → transport → use → end of life</td></tr>
+<tr><td>LCA (Life Cycle Assessment)</td><td>Measures a product's environmental impact over its whole life; shows where to improve</td></tr>
+<tr><td>Kaizen</td><td>Continuous improvement: many small ideas add up</td></tr>
+<tr><td>Efficient working</td><td>Cut waste of time, over-production, resources, activity</td></tr></table>
+<h3>Environmental issues</h3>
+<ul>
+<li><b>Global warming:</b> excess CO<sub>2</sub> traps heat (burning fossil fuels)</li>
+<li><b>Batteries:</b> finite + toxic metals; leach if dumped</li>
+<li><b>Microbeads:</b> pollute oceans → enter food chain</li>
+<li><b>Helpful tech:</b> hydrogen fuel cells (waste = water only), e-paper, 'all-in-one' devices</li>
+</ul>
+<div class="confuse"><b>Don't mix up:</b> recycle (break down and remake) · reuse (use again) · upcycle (make into something better)</div>
+<div class="recap"><b>Recap:</b> Fossil fuels = finite. Judge every life stage (LCA). CO<sub>2</sub> → global warming.</div>`,
+quiz:[
+{t:"mcq",q:"Which of these is a finite resource?",o:["Oil","Timber","Fresh water","Oxygen"],a:0,e:"Oil is a fossil fuel used faster than it can be replaced."},
+{t:"fill",q:"A Life Cycle Assessment evaluates the environmental impact of a product across its whole ___.",a:["life","lifespan","lifecycle","life cycle","lifetime"],e:"From raw materials to end of life."},
+{t:"mcq",q:"Kaizen is best described as…",o:["Continuous improvement through many small changes","Making products just in time","Replacing workers with robots","Selling products at a premium"],a:0,e:"Kaizen means 'change for better' – small improvements add up."},
+{t:"tf",q:"Hydrogen fuel cells produce only water as waste.",a:true,e:"This is why they are seen as environmentally helpful (though producing the hydrogen has its own impact)."},
+{t:"mcq",q:"What is the primary cause of global warming?",o:["Excess CO₂ trapping heat","Plastic microbeads","Noise pollution","Too much oxygen"],a:0,e:"Burning fossil fuels releases CO₂ which traps heat."}
+],
+exam:[
+{id:"sus_a18",src:"adapted",q:"Analyse and evaluate the factors that affect the carbon footprint (CO₂ produced) of a product of your choice, from sourcing materials to disposal.",marks:8,ref:MS22,refNote:"Q18 (8 marks). Question wording is my paraphrase inferred from the official mark scheme – check the original paper for exact wording.",model:"AQA's indicative content (paraphrased): link to Life Cycle Assessment / 'cradle to grave'. Raw material extraction – fuel/energy for harvesting, mining, drilling; recycled materials cut this. Transport – fuel for moving materials and products (product miles); local sourcing reduces it. Packaging, shipping and distribution – CO₂ from making packaging; reducing/simplifying packaging helps. Use – energy used by the product (efficiency rating, stand-by). End of life – energy to separate materials; upcycling reduces CO₂. For top marks, evaluate (give a judgement on) each stage with specific examples and mention ways to reduce the footprint."},
+{id:"sus2",src:"orig",q:"Explain two ways a company could reduce the environmental impact of disposing of a product at the end of its life.",marks:4,model:"Any two, each explained (1+1): design for recycling using few, easily separable materials (so they can be recycled rather than landfilled); use recycled/recyclable materials; avoid permanent bonding (glues) so parts can be separated; design for reuse/upcycling; provide take-back/battery recycling schemes (reduces leaching of toxic chemicals)."}
+]},
+
+{id:"people", title:"People, culture and society", spec:"3.1.1", notes:`
+<h3>Technology push vs market pull</h3>
+<table><tr><th></th><th>Technology push</th><th>Market pull</th></tr>
+<tr><td>Driven by</td><td>New tech / R&amp;D</td><td>Consumer demand</td></tr>
+<tr><td>Consumers</td><td>Often unaware of it</td><td>Expect better products</td></tr>
+<tr><td>Examples</td><td>Synthetic spider silk, LED bulbs</td><td>Smarter phones each year</td></tr></table>
+<ul>
+<li><b>First to market</b> = advantage + premium price</li>
+<li><b>Cobots:</b> robots that work <i>with</i> humans (most robots work separately)</li>
+<li>Automation changes job roles (factory, admin)</li>
+</ul>
+<h3>Culture and society</h3>
+<table><tr><th>Issue</th><th>Example</th></tr>
+<tr><td>Culture</td><td>Japanese floor seating → different furniture</td></tr>
+<tr><td>Colour / icons</td><td>Red = danger <i>or</i> luck, depending on culture</td></tr>
+<tr><td>Reading direction</td><td>Arabic, Hebrew: right to left</td></tr>
+<tr><td>Names</td><td>Kiri → Kibi in Iran ('kiri' = rotten)</td></tr>
+<tr><td>Beliefs</td><td>£5 note contains tallow (animal fat) → upset Hindus, Sikhs, Jains, vegans</td></tr>
+<tr><td>Religion + clothing</td><td>Coverage, grooming, no mixed materials</td></tr>
+<tr><td>Disabled users</td><td>3D-printed custom prosthetics; light, flexible materials</td></tr>
+<tr><td>Inclusive design</td><td>Audible/bright crossings, wheelchair-reachable buttons</td></tr></table>
+<p><b>Trends:</b> new materials + technology drive fashion and design.</p>
+<div class="recap"><b>Recap:</b> Push = research-led · Pull = demand-led. Design must respect cultures, faiths and abilities.</div>`,
+quiz:[
+{t:"mcq",q:"A product developed because research made a new technology possible, not because consumers asked for it, is an example of…",o:["Technology push","Market pull","Fair trade","Just in time"],a:0,e:"Technology push is research-driven."},
+{t:"tf",q:"Market pull is when consumer demand pressures manufacturers to develop or improve products.",a:true,e:"Correct."},
+{t:"fill",q:"___ are collaborative robots designed to work with humans rather than separately from them.",a:["cobots","cobot","collaborative robots"],e:"Cobots."},
+{t:"mcq",q:"Why was Kiri cheese renamed Kibi for the Iranian market?",o:["'Kiri' means 'rotten' in Persian","It was too expensive","The packaging was the wrong colour","It clashed with a local law"],a:0,e:"A brand name can have an unintended meaning in another language."},
+{t:"mcq",q:"Why did the polymer £5 note upset some groups in the UK?",o:["It contained tallow (animal fat)","It was too thin","It contained nickel","It was not recyclable"],a:0,e:"Tallow is from animal fat – an issue for several faiths, vegetarians and vegans."}
+],
+exam:[
+{id:"peo1",src:"orig",q:"Compare technology push and market pull, using one example of each.",marks:4,model:"Technology push: a new technology from R&D is pushed onto the market and consumers may not yet know they want it (1) – e.g. synthetic spider silk / LED bulbs (1). Market pull: consumers' demand drives manufacturers to create or improve products (1) – e.g. people expecting each new smartphone to have more functions (1)."},
+{id:"peo2",src:"orig",q:"A company plans to sell a doll in several countries. Explain why designers must consider different cultures and religions.",marks:3,model:"Products may be perceived differently by different groups (1), e.g. clothing coverage or materials used may offend some religious groups (1); an offensive design/name could cause poor sales or damage the brand's reputation, so research is needed for each market (1)."}
+]},
+
+{id:"production", title:"Production techniques and systems", spec:"3.1.1", notes:`
+<h3>CAD vs CAM</h3>
+<ul>
+<li><b>CAD</b> = Computer Aided <b>Design</b> (precise 2D/3D drawings)</li>
+<li><b>CAM</b> = Computer Aided <b>Manufacture</b> (CNC machines follow CAD files)</li>
+<li><b>CNC milling:</b> 3D, follows x, y, z coordinates</li>
+<li><b>Laser cutter:</b> cuts or etches (speed changes it) – paper, polymers, wood, metal, textiles</li>
+</ul>
+<table><tr><th>CAD advantages</th><th>CAD disadvantages</th></tr>
+<tr><td>Easy to edit, copy, save<br>Remote team working<br>Photo-realistic rendering<br>Very accurate<br>Stress testing</td><td>Hard to learn<br>Expensive software<br>Compatibility issues<br>Hacking / data loss</td></tr></table>
+<h3>Manufacturing systems</h3>
+<table><tr><th>System</th><th>Key point</th></tr>
+<tr><td>Automation</td><td>Saves labour costs; consistent</td></tr>
+<tr><td>FMS</td><td>Automated machines for <b>short-run batches</b>; easily recalibrated, reprogrammed, retooled</td></tr>
+<tr><td>Lean (Toyota)</td><td>Cut waste: overproduction, waiting, transport, over-processing, excess stock, motion, defects</td></tr>
+<tr><td>JIT</td><td>Made as demanded; <b>no stock held</b></td></tr></table>
+<table><tr><th>JIT advantages</th><th>JIT disadvantages</th></tr>
+<tr><td>No warehousing costs<br>Order secured first<br>Stock can't spoil / go obsolete</td><td>Needs reliable suppliers<br>Not available off the shelf<br>No bulk-buy discounts</td></tr></table>
+<div class="confuse"><b>Don't mix up:</b> Lean = the philosophy · JIT = one way to do it</div>
+<div class="recap"><b>Recap:</b> CAD designs → CAM makes. FMS = changing batches. JIT = no stock (cheap but risky).</div>`,
+quiz:[
+{t:"mcq",q:"Which is an advantage of CAD?",o:["Designs can be edited and copied easily","The software is cheap","It never has compatibility issues","It cannot be hacked"],a:0,e:"The other options are disadvantages or untrue."},
+{t:"fill",q:"CNC milling machines follow x, y and ___ coordinates.",a:["z"],e:"Three dimensions: x, y, z."},
+{t:"mcq",q:"Flexible Manufacturing Systems are best suited to…",o:["Short-run batch production where products change frequently","One-off handmade products","Never-changing continuous mass production","Products with no automation"],a:0,e:"FMS machines can be recalibrated, reprogrammed and retooled."},
+{t:"tf",q:"In Just In Time production, no surplus stock of materials or parts is kept.",a:true,e:"Items are made as they are demanded."},
+{t:"mcq",q:"Which is a disadvantage of JIT?",o:["Reliant on a high-quality supply chain","Needs large warehouses","Stock becomes obsolete","Parts must be paid for long before use"],a:0,e:"A late or poor delivery can stop production."}
+],
+exam:[
+{id:"prod_a23",src:"adapted",q:"Give one advantage and one disadvantage of freehand sketching compared with computer-aided drawing (CAD).",marks:4,ref:MS22,refNote:"Q23 (2 × 2 marks per official mark scheme). Wording is my paraphrase inferred from the mark scheme – check the original paper.",model:"AQA indicative content (paraphrased). Advantages: cheap, needs only pencil and paper (1) – cheaper than CAD which needs a computer and software (2); can be done anywhere, quickly; no need to learn complex software; not at risk of hacking. Disadvantages: less accurate; unclear if drawing skills are weak; paper can be damaged; can't easily be shared with several people worldwide; can't be sent directly to CAM; mistakes need redrawing whereas CAD can edit/undo. Detailed points that clearly link to CAD get 2 marks, basic points 1."},
+{id:"prod2",src:"orig",q:"A bakery is considering a Just In Time system for its ingredients. Discuss one advantage and one disadvantage for the bakery.",marks:4,model:"Advantage (2): no warehousing costs / ingredients are fresh and don't deteriorate or become obsolete. Disadvantage (2): relies on a high-quality, reliable supply chain – a late delivery stops production; stock isn't available immediately; fewer bulk-buying discounts."}
+]},
+
+{id:"decisions", title:"Informing design decisions", spec:"3.1.1", notes:`
+<h3>Judging new products</h3>
+<ul>
+<li>Cost · reliability · longevity · sustainability · recyclability</li>
+<li>Research: similar products, available tech, market size, market need</li>
+</ul>
+<h3>Planned obsolescence</h3>
+<ul>
+<li><b>Definition:</b> product deliberately designed to have a limited life</li>
+<li>Think about: fashion, market share, new tech, upgradeability</li>
+<li><b>Over-engineered</b> = wasted cost/material · <b>under-engineered</b> = fails early</li>
+</ul>
+<table><tr><th>Who</th><th>Short lifespan means…</th></tr>
+<tr><td>Manufacturer</td><td>Repeat sales ✓</td></tr>
+<tr><td>Consumer</td><td>Extra cost ✗</td></tr>
+<tr><td>Environment</td><td>More waste + resources used ✗</td></tr></table>
+<h3>Repair and end of life</h3>
+<ul>
+<li>Complex products need <b>specialist</b> knowledge, tools, parts</li>
+<li>Sweden: halved VAT on repairs → products last longer</li>
+<li><b>Design for end of life:</b> few materials · recycled/recyclable · easy to separate (no permanent glue) · reusable</li>
+<li><b>Social responsibility:</b> ethical sourcing, less waste, responsible disposal</li>
+</ul>
+<div class="recap"><b>Recap:</b> Planned obsolescence helps makers, hurts users + planet. Few, separable, recyclable materials = best end of life.</div>`,
+quiz:[
+{t:"mcq",q:"Planned obsolescence means…",o:["Deliberately designing a product with a limited lifespan","Designing a product to last forever","Repairing products for free","Making products just in time"],a:0,e:"It encourages repeat purchases."},
+{t:"tf",q:"Over-engineering a product part can waste materials and money.",a:true,e:"Under-engineering risks early failure; over-engineering wastes resources."},
+{t:"mcq",q:"Which design choice helps recycling at end of life?",o:["Easy-to-separate materials with no permanent bonding","Gluing many different materials together","Using as many materials as possible","Hiding screws under permanent glue"],a:0,e:"Separable, fewer materials are easier to recycle."},
+{t:"fill",q:"Design for ___ means products are made so they can be repaired rather than thrown away.",a:["maintenance","repair"],e:"Design for maintenance."},
+{t:"mcq",q:"How did Sweden encourage people to repair rather than replace products?",o:["Halved VAT on repairs","Banned new products","Taxed repairs","Gave free replacements"],a:0,e:"Plus tax benefits to offset half the labour cost."}
+],
+exam:[
+{id:"dec1",src:"orig",q:"Discuss planned obsolescence from the point of view of (a) a manufacturer and (b) the environment.",marks:4,model:"(a) Manufacturer (2): products are replaced sooner so there are repeat sales/steady profits; can launch upgraded models. (b) Environment (2): more waste and more raw materials/energy consumed; more products ending up in landfill or needing recycling; greater carbon footprint."},
+{id:"dec2",src:"orig",q:"Describe three design features that make a product easier to recycle at the end of its life.",marks:3,model:"Any three: uses as few different materials as possible; uses recycled/recyclable materials; uses easily separated parts (screws/clips instead of permanent glue); labels the materials; includes built-in reusability."}
+]},
+
+{id:"energy", title:"Energy generation and storage", spec:"3.1.2", notes:`
+<h3>Energy basics</h3>
+<ul>
+<li>Energy = capacity to do work. Never created or destroyed, only changes form</li>
+<li><b>Potential (stored):</b> chemical, mechanical, nuclear, gravitational</li>
+<li><b>Kinetic (moving):</b> movement, electricity, heat, sound, light</li>
+</ul>
+<h3>Storage systems</h3>
+<table><tr><th>System</th><th>Key points</th></tr>
+<tr><td>Pneumatics</td><td>Compressed <b>air</b> · accurate · low maintenance · drills, production lines</td></tr>
+<tr><td>Hydraulics</td><td>Compressed <b>liquid</b> · more powerful · lifts, car brakes</td></tr>
+<tr><td>Pumped storage</td><td>Surplus electricity pumps water uphill → released through turbines when demand is high</td></tr>
+<tr><td>Flywheel</td><td>Spins using surplus energy; motor acts as generator to return it. <b>KERS</b> in vehicles</td></tr>
+<tr><td>Chemical</td><td>Batteries, gas, fuels, hydrogen fuel cells</td></tr></table>
+<h3>Batteries</h3>
+<ul>
+<li>Battery = several <b>cells</b>. Cell = <b>1.5 V</b> (rechargeable <b>1.2 V</b>). 9 V PP3 = 6 cells</li>
+<li><b>Alkaline:</b> higher capacity than lead-acid, holds charge well</li>
+<li><b>Rechargeable:</b> power tools, mobility aids, EVs, phones</li>
+<li><b>Emerging:</b> flow batteries (balance National Grid), sodium + glass (fast charge)</li>
+<li><b>Disposal:</b> toxic metals leach into soil/water → specialist recycling</li>
+</ul>
+<div class="gap"><b>Gap:</b> AQA also needs <b>energy generation</b> (fossil fuels, nuclear, wind, solar, tidal, hydro, biomass) with arguments for/against. Not in your slides – check your textbook.</div>
+<div class="confuse"><b>Don't mix up:</b> pneumatic = air · hydraulic = liquid (stronger)</div>
+<div class="recap"><b>Recap:</b> Store surplus, release on demand. Hydraulics &gt; pneumatics. Recycle batteries.</div>`,
+quiz:[
+{t:"mcq",q:"In pumped storage, when is water pumped up to the high-level reservoir?",o:["When there is a surplus of electricity","When demand is highest","Only at night for cooling","When the reservoir is empty of power"],a:0,e:"The stored potential energy is released when demand is high."},
+{t:"mcq",q:"What is the main difference between pneumatic and hydraulic systems?",o:["Pneumatics use compressed air; hydraulics use liquid and are more powerful","Pneumatics are more powerful","Hydraulics use air","There is no difference"],a:0,e:"Hydraulics use liquid, giving a more powerful system."},
+{t:"fill",q:"A typical alkaline cell gives ___ V (a rechargeable cell gives 1.2 V). Enter the number.",a:["1.5","1.5v","1.5 v"],e:"1.5 V."},
+{t:"tf",q:"Energy is created inside a battery.",a:false,e:"Energy is transformed from stored chemical energy; it is never created or destroyed."},
+{t:"mcq",q:"How many 1.5 V cells are in a 9 V PP3 battery?",o:["3","4","6","9"],a:2,e:"9 ÷ 1.5 = 6."}
+],
+exam:[
+{id:"en1",src:"orig",q:"Explain how a pumped storage hydroelectric system helps to provide a consistent electricity supply.",marks:3,model:"When there is surplus electricity (low demand) water is pumped to a high-level reservoir (1), storing it as potential energy (1); when demand is high the water is released through turbines to generate electricity (1)."},
+{id:"en2",src:"orig",q:"Give two environmental problems caused by the disposal of batteries.",marks:2,model:"Toxic chemicals and metals leach into soil and the water table (1); harmful to wildlife and the natural habitat / need specialist recycling (1)."}
+]},
+
+{id:"modern", title:"Modern and smart materials", spec:"3.1.3", notes:`
+<h3>Modern materials</h3>
+<table><tr><th>Material</th><th>Key properties</th></tr>
+<tr><td>Graphene</td><td>1 atom thick · ~200× stronger than steel · conductive · flexible · ultra-light</td></tr>
+<tr><td>Metal foam</td><td>Gas passed through liquid metal · strong, light, porous · absorbs sound + energy</td></tr>
+<tr><td>Titanium</td><td>High strength-to-weight · polishes, forms, welds · hypo-allergenic · hip implants, aircraft</td></tr>
+<tr><td>Nanomaterials</td><td>Parts &lt; 100 nm · strength without weight · antibacterial socks</td></tr>
+<tr><td>LCD</td><td>Liquid crystal between 2 glass layers · voltage lets light through · low power</td></tr></table>
+<h3>Coated metals</h3>
+<ul>
+<li><b>Anodised aluminium:</b> thick oxide layer, can be coloured</li>
+<li><b>Nickel-plated steel:</b> cheap steel + corrosion resistance / looks</li>
+<li><b>Polymer-coated aluminium:</b> dip/powder coat (tool handles)</li>
+</ul>
+<h3>Smart materials – react to a stimulus</h3>
+<table><tr><th>Material</th><th>Reacts to</th><th>Use</th></tr>
+<tr><td>Thermochromic</td><td>Heat</td><td>Baby spoon shows food too hot</td></tr>
+<tr><td>Photochromic</td><td>UV light</td><td>Sunglasses darken</td></tr>
+<tr><td>Shape memory alloy (Nitinol: nickel + titanium)</td><td>Heat / current</td><td>Braces, stents</td></tr></table>
+<div class="confuse"><b>Don't mix up:</b> thermo = heat · photo = light</div>
+<div class="recap"><b>Recap:</b> Modern = new/improved properties. Smart = changes when stimulated.</div>`,
+quiz:[
+{t:"mcq",q:"Which material is made by passing gas through a liquid metal?",o:["Metal foam","Graphene","Nitinol","Titanium"],a:0,e:"The gassed metal sets as a foam."},
+{t:"mcq",q:"Thermochromic pigments change colour in response to…",o:["Temperature","UV light","Pressure","Moisture"],a:0,e:"Photochromic pigments respond to UV."},
+{t:"fill",q:"Nitinol is a shape memory alloy of nickel and ___.",a:["titanium"],e:"Nickel + titanium."},
+{t:"tf",q:"Photochromic pigments react to UV light.",a:true,e:"e.g. sunglasses that darken."},
+{t:"mcq",q:"Why is pure titanium used for hip replacements?",o:["It does not react with the human body","It is a smart material","It is cheaper than steel","It is transparent"],a:0,e:"It is hypo-allergenic and doesn't react with the body."},
+{t:"mcq",q:"Nanomaterials have parts smaller than…",o:["100 nanometres","1 millimetre","1 micrometre","1 centimetre"],a:0,e:"Atomic or molecular scale."}
+],
+exam:[
+{id:"mod_a11",src:"adapted",q:"(a) Name one modern material. (b) Explain why modern materials have been developed.",marks:3,ref:MS22,refNote:"Q11.1 (1 mark) and Q11.2 (2 marks). Wording is my paraphrase inferred from the official mark scheme – check the original paper.",model:"(a) Any specific modern material, e.g. graphene, metal foam, titanium, Kevlar, nanomaterials, LCD, Nitinol, thermochromic/photochromic pigments, QTC, polymorph (1). (b) AQA credit: developed to meet specific product requirements (e.g. Pyrex for heat resistance); improved properties not available in traditional materials like wood or metal; improved durability in working conditions (heat, stress); longer-lasting products. Two simple points or one developed point with an example = 2 marks. Generic answers like 'stronger' or 'cheaper' alone don't score."},
+{id:"mod2",src:"orig",q:"A baby's feeding spoon contains thermochromic pigment. Explain how this helps the user, and give one other use of a smart material.",marks:3,model:"The pigment changes colour when the temperature rises (1), warning the carer that the food is too hot (1). Other use e.g. photochromic sunglasses darkening in UV; Nitinol dental braces/stents (1)."}
+]},
+
+{id:"composites", title:"Composites and technical textiles", spec:"3.1.3", notes:`
+<h3>Composites = 2+ different materials combined for better properties</h3>
+<table><tr><th></th><th>GRP</th><th>CRP</th></tr>
+<tr><td>Made of</td><td>Glass fibre + resin</td><td>Carbon fibre cloth + resin</td></tr>
+<tr><td>Good</td><td>Light, corrosion + chemical resistant, cheaper</td><td>Very high strength-to-weight, good tensile strength</td></tr>
+<tr><td>Bad</td><td>Labour intensive</td><td>Very expensive, skilled, weak in compression</td></tr>
+<tr><td>Uses</td><td>Boat hulls, tanks, helmets</td><td>Supercars, sports kit</td></tr></table>
+<p><b>Layup:</b> gel coat in mould → fibre matting → resin worked in → repeat to thickness</p>
+<h3>Technical textiles (made for performance)</h3>
+<table><tr><th>Textile</th><th>Key points</th></tr>
+<tr><td>Conductive (e-textiles)</td><td>Conductive fibres or powders</td></tr>
+<tr><td>Nomex</td><td><b>Fire resistant</b> · thickens when heated · fire-fighter suits</td></tr>
+<tr><td>Kevlar</td><td>Tensile strength &gt; 8× steel wire · doesn't melt · bullet-proof vests, helmets</td></tr>
+<tr><td>Microfibres</td><td>Very thin synthetic fibres · sportswear</td></tr>
+<tr><td>Micro-encapsulation</td><td>Capsules release perfume / insecticide / antiseptic</td></tr></table>
+<div class="confuse"><b>Don't mix up:</b> Nomex = fire · Kevlar = strength</div>
+<div class="recap"><b>Recap:</b> CRP = strongest but costly · GRP = cheaper. Technical textiles are chosen for performance.</div>`,
+quiz:[
+{t:"mcq",q:"Which is a disadvantage of CRP?",o:["Very expensive","Heavy","Low tensile strength","Corrodes easily"],a:0,e:"It is also labour intensive and has poor compressive strength."},
+{t:"tf",q:"GRP is lightweight, corrosion resistant and chemical resistant.",a:true,e:"Used for boat hulls and tanks."},
+{t:"fill",q:"Fibres that hold chemicals such as perfume in tiny capsules use ___-encapsulation.",a:["micro","micro-"],e:"Micro-encapsulation."},
+{t:"mcq",q:"Which technical textile is used in bullet-proof vests?",o:["Kevlar","Nomex","Tencel","Cotton/viscose"],a:0,e:"Kevlar has very high tensile strength."},
+{t:"mcq",q:"Which fabric thickens when heated to protect fire-fighters?",o:["Nomex","Polyamide","Elastane","Conductive fabric"],a:0,e:"Nomex is a fire-resistant fabric."}
+],
+exam:[
+{id:"comp_a15",src:"adapted",q:"Explain how materials can be improved by reinforcing, giving examples.",marks:3,ref:MS22,refNote:"Q15.2 (3 marks). Wording is my paraphrase inferred from the official mark scheme – check the original paper.",model:"AQA indicative content (paraphrased) – any developed points with examples: concrete reinforced with steel bars to resist tension; composites such as CRP combining dissimilar materials to get the best properties of both; lamination (glulam beams resist bending; laminating paper/card improves tear and moisture resistance); fabrics reinforced with interfacing, stitching techniques; ribbing, webbing, fillets and gussets in polymers/structures add stiffness and strength with less material."},
+{id:"comp2",src:"orig",q:"Compare GRP and CRP for making a boat hull and a racing-car body panel. Which would you choose for each and why?",marks:4,model:"GRP for the boat hull (1): lightweight, corrosion- and chemical-resistant, cheaper, easy to make complex shapes in a mould (1). CRP for the racing car (1): very high strength-to-weight ratio, worth the high cost and skilled production for performance (1)."}
+]},
+
+{id:"systems", title:"Electronic systems", spec:"3.1.4", notes:`
+<h3>System = input → process → output</h3>
+<table><tr><th>Open loop</th><th>Closed loop</th></tr>
+<tr><td>No feedback<br>Can't make decisions<br>e.g. heater on until switched off</td><td>Sensor <b>feedback</b><br>Makes decisions<br>e.g. thermostat controls boiler</td></tr></table>
+<h3>Inputs</h3>
+<table><tr><th>Component</th><th>Detects / does</th></tr>
+<tr><td>SPST switch</td><td>Simple on/off</td></tr>
+<tr><td>SPDT switch</td><td>Chooses between 2 outputs</td></tr>
+<tr><td>Push to make / break</td><td>Momentary (doorbell)</td></tr>
+<tr><td>Thermistor</td><td>Temperature</td></tr>
+<tr><td>LDR</td><td>Light / dark</td></tr>
+<tr><td>Pressure sensor</td><td>Force</td></tr></table>
+<h3>Outputs</h3>
+<ul>
+<li>LED, lamp, buzzer, speaker, heating element</li>
+<li><b>Transducer driver:</b> boosts power so output works without overheating</li>
+<li>Most outputs have <b>polarity</b> (right way round)</li>
+</ul>
+<h3>Processes</h3>
+<ul>
+<li><b>Analogue:</b> continuous range (thermistor, LDR) · <b>Digital:</b> on/off, 1 or 0 (switch)</li>
+<li><b>Microcontroller (PIC):</b> programmable IC. Costs more than a basic IC but replaces many → saves space + cost</li>
+<li>Programmed by USB from a computer, using code or a <b>flowchart</b></li>
+<li>Jobs: <b>counting · timing · decisions</b></li>
+</ul>
+<table><tr><th>Monostable</th><th>Astable</th></tr>
+<tr><td>On for set time, then off<br><b>One pulse per trigger</b><br>PIR + automatic door</td><td>Keeps switching on/off<br><b>Repeating pulses</b><br>Indicators, seatbelt alarm</td></tr></table>
+<p>Frequency in <b>hertz (Hz)</b> = cycles per second.</p>
+<div class="recap"><b>Recap:</b> Closed loop = feedback. Sensors analogue, switches digital. Monostable = once · astable = repeating.</div>`,
+quiz:[
+{t:"mcq",q:"A closed loop system differs from an open loop system because it…",o:["Uses feedback from a sensor to make decisions","Has no output","Only uses digital signals","Needs no power"],a:0,e:"Feedback is the key feature."},
+{t:"mcq",q:"A thermistor is an input component that detects…",o:["Temperature","Light","Sound","Pressure"],a:0,e:"An LDR detects light."},
+{t:"fill",q:"A ___ timer output goes on for a set time then off once each time it is triggered.",a:["monostable"],e:"Monostable = single shot."},
+{t:"tf",q:"An analogue signal is either fully on or fully off.",a:false,e:"That's a digital signal; analogue varies continuously."},
+{t:"mcq",q:"Why might a transducer driver be used with an output component?",o:["To increase the power available so the circuit works without overheating","To make the output digital","To reduce the number of inputs","To change its colour"],a:0,e:"Some outputs need more power than the circuit can supply."},
+{t:"mcq",q:"Which application uses an astable circuit?",o:["Flashing indicator lights","A single door-opening pulse","A manual on/off switch","A battery charger"],a:0,e:"Astable outputs continuously switch on and off."}
+],
+exam:[
+{id:"sys1",src:"orig",q:"Explain the difference between an open loop and a closed loop system. Use a heating system as your example.",marks:4,model:"Open loop (2): no feedback so it cannot make decisions; e.g. a heater stays on until manually switched off regardless of the room temperature. Closed loop (2): uses feedback from a sensor (thermistor) to make decisions; e.g. central heating turns the boiler on/off when the temperature reaches a set value."},
+{id:"sys2",src:"orig",q:"A car's seatbelt alarm sounds a buzzer on and off once a second until the belt is fastened. (a) Is this a monostable or astable process? (b) Explain your answer.",marks:3,model:"(a) Astable (1). (b) The output keeps switching between on and off automatically (1) for as long as the belt is unfastened/ the circuit continues, rather than giving one pulse per trigger (1)."}
+]},
+
+{id:"mechanical", title:"Mechanical devices", spec:"3.1.5", notes:`
+<h3>Types of motion</h3>
+<table><tr><th>Linear</th><th>Rotary</th><th>Reciprocating</th><th>Oscillating</th></tr>
+<tr><td>Straight line</td><td>Circle</td><td>To and fro in a straight line</td><td>Swing in an arc</td></tr></table>
+<h3>Levers (pivot = fulcrum)</h3>
+<table><tr><th>Order</th><th>Middle of the lever is…</th></tr>
+<tr><td>1st</td><td><b>Fulcrum</b></td></tr>
+<tr><td>2nd</td><td><b>Load</b> (effort smaller than load)</td></tr>
+<tr><td>3rd</td><td><b>Effort</b> (effort bigger than load)</td></tr></table>
+<h3>Linkages</h3>
+<ul>
+<li><b>Bell crank:</b> turns motion through 90°</li>
+<li><b>Push/pull:</b> same direction + force (e.g. wipers)</li>
+<li>Pivot nearer the output = bigger output force</li>
+</ul>
+<h3>Rotary systems</h3>
+<table><tr><th>Mechanism</th><th>Key points</th></tr>
+<tr><td>Cam + follower</td><td>Rotary → reciprocating · follower <b>rises, falls, dwells</b></td></tr>
+<tr><td>Gear train</td><td>Transmits rotation + <b>torque</b> · idler gear = same direction · bevel gears = 90°</td></tr>
+<tr><td>Rack + pinion</td><td>Rotary ↔ linear (pillar drill, steering)</td></tr>
+<tr><td>Crank + slider</td><td>Rotary ↔ reciprocating (engine)</td></tr>
+<tr><td>Chain + sprocket</td><td>Rotary → rotary (bike)</td></tr>
+<tr><td>Pulley + belt</td><td>Rotary → rotary · can slip · cheaper, less maintenance</td></tr></table>
+<h3>Speed and torque</h3>
+<ul>
+<li><b>Velocity ratio = driven teeth ÷ driver teeth</b> (check how your teacher writes it)</li>
+<li>Example: 24 → 48 teeth = ratio 2 → driven turns <b>half speed</b>, <b>double torque</b></li>
+<li>Bigger driven gear/pulley = slower, more torque · smaller = faster, less torque</li>
+<li>More pulleys in a lifting system = less effort</li>
+</ul>
+<div class="gap"><b>Check slides:</b> chain/sprocket slide says torque rises when speed rises (it falls). 'Third-order lever' slide is actually crank and slider.</div>
+<div class="confuse"><b>Don't mix up:</b> reciprocating (straight) vs oscillating (arc)</div>
+<div class="recap"><b>Recap:</b> 4 motions · 3 levers · bell crank 90° · cams rise/fall/dwell · bigger driven = slower + stronger.</div>`,
+quiz:[
+{t:"mcq",q:"Which type of motion is backwards and forwards in a straight line?",o:["Reciprocating","Oscillating","Rotary","Linear"],a:0,e:"Linear is one direction in a line; oscillating swings in an arc."},
+{t:"mcq",q:"In a first-order lever, the fulcrum is…",o:["Between the effort and the load","At the end, beyond the load","Beyond the effort","Always at the effort"],a:0,e:"Second: load in the middle. Third: effort in the middle."},
+{t:"fill",q:"Bevel gears change the axis of rotation through ___ degrees.",a:["90","ninety"],e:"The teeth mesh at right angles."},
+{t:"mcq",q:"A driver gear has 12 teeth and the driven gear has 24 teeth. What happens to the driven gear?",o:["Turns at half the speed (velocity ratio 2)","Turns at twice the speed","Turns at the same speed","Stops"],a:0,e:"24 ÷ 12 = 2, so speed halves and torque doubles."},
+{t:"mcq",q:"What does a rack and pinion do?",o:["Converts between rotary and linear motion","Converts reciprocating to oscillating","Changes motion through 90° only","Only transmits rotary to rotary"],a:0,e:"Used in pillar drills and car steering."},
+{t:"tf",q:"An idler gear between two gears makes the driven gear turn the same way as the driver.",a:true,e:"Meshed gears alternate direction; the idler reverses it once more."}
+],
+exam:[
+{id:"mech_a13",src:"adapted",q:"A car's windscreen wipers use a motor and a connecting linkage to move two wiper arms. (a) Name the type of motion the wiper arms make. (b) Explain the purpose of the connecting linkage.",marks:3,ref:MS22,refNote:"Q13.1 (1 mark) and Q13.2 (2 marks); the original includes a diagram. Wording is my paraphrase inferred from the mark scheme – see the original paper.",model:"(a) Oscillating (1). (b) AQA indicative content: makes both wiper arms move in parallel / in unison so they don't clash; both clear the screen at the same time; stabilises the mechanism; only one motor is needed. A detailed point linked to the wiper motion = 2 marks, a simple one = 1."},
+{id:"mech2",src:"orig",q:"A motor drives a gear with 15 teeth which meshes with a gear with 45 teeth. (a) Calculate the velocity ratio (driven ÷ driver). (b) State what happens to the speed and torque of the driven gear.",marks:3,model:"(a) 45 ÷ 15 = 3 (or 3:1) (1). (b) The driven gear turns slower, at one third of the speed (1), and torque is increased (1)."},
+{id:"mech3",src:"orig",q:"Describe the three orders of lever, stating where the fulcrum, load and effort are in each.",marks:3,model:"First: fulcrum between effort and load (1). Second: load between fulcrum and effort (1). Third: effort between fulcrum and load (1)."}
+]}
+];
+
+/* ===== extra quiz questions (correct option listed first; options are shuffled when the quiz runs) ===== */
+const M=(q,r,w,e)=>({t:"mcq",q,o:[r,...w],a:0,e:e||"Correct answer: "+r+"."});
+const TF=(q,a,e)=>({t:"tf",q,a,e});
+const F=(q,a,e)=>({t:"fill",q,a,e:e||"Answer: "+a[0]+"."});
+const QX={
+industry:[
+M("Which revolution, starting around 1780, brought steam-powered machines and early automation?","Industrial revolution",["Digital revolution","Green revolution","Information revolution"],"The industrial revolution (c.1780); the digital revolution came c.1940."),
+M("Which is a benefit of using robots in manufacturing?","Greater consistency and accuracy",["They need no programming","They never change job roles","They work only with humans"],"Robots give more consistency, accuracy, reliability and productivity."),
+F("Code 128 can represent letters and ___.",["numbers","digits"],"Code 128 handles letters and numbers."),
+TF("UPC-A barcodes can represent both letters and numbers.",false,"UPC-A is numbers only; Code 128 does letters and numbers."),
+M("Which is a danger of 3D printing?","Harmful items such as guns could be printed from shared files",["It can only print flat shapes","It cannot make moving parts","It uses no electricity"],"A printable gun file was shared online in 2013."),
+M("What is graphene?","A one-atom-thick carbon structure about 200× stronger than steel",["A smart pigment","A type of crowdfunding","A plastic coating for steel"]),
+TF("Crowdfunding raises investment from many individuals who believe in an idea.",true,"e.g. POD Point raised over £1.8m from 618 people."),
+M("Which is NOT needed for electric vehicles to succeed?","Cheaper oil supplies",["Charging networks","Better battery technology","A change in driver mindset"],"EVs depend on charging networks, batteries and driver mindset – not oil."),
+M("What happens to the Fairtrade Premium?","Farmers invest it in their communities",["It lowers supermarket prices","It pays shareholders","It funds advertising"]),
+TF("In a co-operative, only one owner keeps the profits.",false,"Members share the profits."),
+M("Why might a factory change its layout when automation is added?","So the production line flows logically from one stage to the next",["Robots need extra daylight","To remove the need for workflow","To make the building bigger"])
+],
+sustain:[
+F("Coal, gas and oil are ___ resources because they are used faster than they are replaced.",["finite","non-renewable","nonrenewable"]),
+M("Which of these is a renewable energy source?","Tidal",["Coal","Gas","Oil"]),
+TF("Landfill can cause chemicals to leach into soil and water.",true),
+M("Which waste method saves raw materials and energy?","Recycling",["Landfill","Incineration","Dumping at sea"]),
+M("Which is a stage considered in an LCA?","End of life",["Staff training","Advertising spend","Planning permission"],"LCA covers materials, manufacture, transport, use and end of life."),
+TF("Kaizen rewards employees for suggesting even small improvements.",true),
+M("Which is a type of waste that efficient working aims to remove?","Over-production",["Profit","Quality","Customer feedback"]),
+M("Why are plastic microbeads harmful?","They pollute oceans and enter the food chain",["They dissolve harmlessly","They are made from timber","They absorb CO₂"]),
+F("Hydrogen fuel cells produce only ___ as waste.",["water"]),
+TF("Combining several devices into one can reduce the raw materials used.",true),
+M("What is upcycling?","Turning waste into something of higher value",["Burying waste","Burning waste for energy","Breaking material down to remake the same thing"])
+],
+people:[
+M("Which is an example of technology push?","Synthetic spider silk developed through research",["Customers demanding a better phone camera","A shop copying a rival","A price comparison site"]),
+M("What does being first to market give a company?","A competitive advantage and often a premium price",["A guaranteed profit","No need for R&D","Lower production costs"]),
+TF("Cobots are designed to work with humans.",true),
+TF("Most industrial robots are designed to work alongside humans.",false,"Most work separately – cobots are the exception."),
+M("Which cultural issue could affect a web page layout?","Reading direction (e.g. right to left)",["Battery size","Postage cost","Screen weight"]),
+F("Kiri cheese was renamed ___ for the Iranian market.",["kibi"]),
+M("Why can the colour red be a problem in global design?","Its meaning differs between cultures",["It cannot be printed","It is always banned","It is a smart colour"]),
+M("Which is an example of inclusive design?","A pedestrian crossing with audible beeps and bright colours",["A stairs-only entrance","Tiny unlabelled buttons","A product only experts can use"]),
+M("How can 3D printing help disabled users?","It can make customised, comfortable prosthetic sockets",["It makes prostheses heavier","It only produces standard sizes","It removes the need for scanning"]),
+TF("New products can have both positive and negative impacts on society.",true),
+M("Why might religion affect textile design?","Some require fuller coverage or no blended materials",["Religions ban all colours","Textiles must be plastic","It has no effect"])
+],
+production:[
+M("What does CAM stand for?","Computer Aided Manufacture",["Computer Aided Marketing","Computer Aided Materials","Central Automated Machine"]),
+TF("CAD files can be used by CAM machines to generate tool paths.",true),
+M("Which machine can cut or etch depending on its speed?","Laser cutter",["Pillar drill","Pneumatic press","Rack and pinion"]),
+F("CNC stands for Computer ___ Control.",["numerical"]),
+M("Which is a disadvantage of CAD?","Software can be expensive and hard to learn",["Designs can't be edited","Designs can't be copied","It is less accurate than hand drawing"]),
+M("Which is one of the wastes Lean manufacturing tries to remove?","Excessive inventory",["Quality checks","Skilled staff","Customer orders"]),
+TF("Lean manufacturing is a Japanese philosophy created by Toyota.",true),
+M("Why is FMS suited to short-run batch production?","Machines can be quickly recalibrated, reprogrammed and retooled",["It only makes one product forever","It needs no machines","It uses no power"]),
+M("Which is an advantage of JIT?","No warehousing costs",["Stock is available instantly","Bulk-buying discounts","Less reliance on suppliers"]),
+TF("Automation can save labour costs.",true),
+M("Why do many designers still start with hand sketches?","It is quick and cheap with no software needed",["It is more accurate than CAD","It can go straight to CAM","It can never be lost"])
+],
+decisions:[
+M("Which is NOT a factor used to evaluate new technologies?","The weather on launch day",["Cost","Reliability","Recyclability"]),
+TF("Under-engineering a part can cause it to fail early.",true),
+F("Planned ___ means designing a product with a limited lifespan.",["obsolescence"]),
+M("Who benefits most from short product lifespans?","Manufacturers (repeat sales)",["The environment","Landfill sites","Consumers' wallets"]),
+M("Why are some products hard to repair at home?","They need specialist knowledge, tools and parts",["Repairs are illegal","They have no parts","They are always disposable"]),
+TF("Permanent bonding makes products easier to recycle.",false,"Easy-to-separate materials are better – avoid permanent bonding."),
+M("Which helps design for end of life?","Using as few materials as possible",["Mixing many materials","Gluing parts permanently","Using non-recyclable parts"]),
+M("What does social responsibility involve for a company?","Ethical sourcing, reducing waste and responsible disposal",["Maximising packaging","Hiding product origins","Ignoring end of life"]),
+M("What should a designer research before making a new product?","The size of the market and the market need",["Nothing – just design","Only their own preferences","Only the cheapest materials"]),
+TF("Upgradeability is a factor when deciding a product's lifespan.",true),
+M("Why did Sweden halve VAT on repairs?","To encourage repair so products last longer and less material is used",["To raise tax income","To ban new products","To lower shipping costs"])
+],
+energy:[
+M("Which form of energy is stored?","Potential",["Kinetic","Sound","Light"]),
+TF("Hydraulic systems use compressed air.",false,"Hydraulics use liquid; pneumatics use air."),
+M("What is KERS used for?","Saving fuel by recovering kinetic energy in vehicles",["Charging phones","Cooling engines","Measuring speed"]),
+F("Pneumatic systems use compressed ___ or gas to create movement.",["air"]),
+M("Which is an advantage of pneumatics?","Accurate and low maintenance",["More powerful than hydraulics","Needs no pump","Works with no pressure"]),
+M("Where are hydraulics used?","Car braking systems",["Digital watches","Sunglasses","LCD screens"]),
+TF("Rechargeable cells are usually 1.2 V.",true),
+M("Why are batteries dangerous if dumped?","Toxic metals leach into soil and water",["They absorb CO₂","They are biodegradable","They bounce"]),
+M("A flywheel stores energy as…","Momentum (kinetic energy)",["Chemical energy","Gravitational energy","Heat in water"]),
+M("What do flow batteries help with?","Smoothing demand on the National Grid",["Powering watches","Making LCDs","Cooling EVs"]),
+F("In pumped storage, water is stored in a ___ level reservoir.",["high","higher","upper"]),
+M("Compared with lead-acid, alkaline batteries…","Have higher capacity and hold charge well",["Are larger","Cannot be recycled","Weigh more"])
+],
+modern:[
+M("Which is a property of metal foam?","Excellent energy absorption",["Transparent","Changes colour with heat","Dissolves in water"]),
+M("Anodising aluminium creates…","A thick oxide layer that can be coloured",["A nickel coat","A foam","A polymer film"]),
+TF("Nickel plating uses electrolysis.",true),
+M("What does an LCD need in order to let light through?","A voltage applied",["Heat","UV light","Pressure"]),
+M("Why are LCDs good for battery-powered products?","Low power consumption",["They glow without power","They are heavy","They are made of nickel"]),
+F("Photochromic sunglasses use silver ___.",["halides","halide"]),
+TF("A smart material reacts to an external stimulus.",true),
+M("Which is a use of Nitinol?","Dental braces",["Baby spoons","Sunglasses","Boat hulls"]),
+M("Nanoparticles in socks provide…","Antibacterial properties",["Fire resistance","Conductivity","Shape memory"]),
+M("Titanium being hypo-allergenic means it…","Is unlikely to cause allergic reactions",["Is magnetic","Melts easily","Is transparent"]),
+M("Which material was developed in 2004 but hard to make reliably until recently?","Graphene",["Metal foam","Nitinol","Kevlar"]),
+TF("Polymer-coated aluminium can be made by dip or powder coating.",true)
+],
+composites:[
+M("What is a composite material?","Two or more different materials combined for improved properties",["A pure metal","A single polymer","A natural fibre only"]),
+F("GRP stands for glass ___ plastic.",["reinforced"],"Glass (fibre) reinforced plastic."),
+TF("CRP has good tensile strength but poor compressive strength.",true),
+M("What is applied to the mould first when making GRP?","A gel coat (resin layer)",["Metal foil","Fibre matting","Paint"]),
+M("Which material is used for boat hulls?","GRP",["Kevlar","Nomex","Conductive fabric"]),
+M("Which is an advantage of GRP over CRP?","It is cheaper",["It is stronger","It is lighter","It looks more modern"]),
+TF("Kevlar melts at low temperatures.",false,"Kevlar doesn't melt and withstands about 450 °C."),
+M("E-textiles contain…","Conductive fibres or powders",["Fire-retardant gel","Perfume capsules","Only cotton"]),
+M("Which is a use of micro-encapsulation?","Insect-repellent clothing",["Bullet-proof vests","Fire suits","Boat hulls"]),
+M("Fire-resistant fabrics are required by law in…","Children's nightwear",["Football shirts","Umbrellas","Socks"]),
+F("Nomex ___ when heated to protect the wearer.",["thickens"])
+],
+systems:[
+M("Which input component detects light?","LDR",["Thermistor","Buzzer","LED"]),
+TF("A digital signal can only be on or off.",true),
+M("A push-to-make switch…","Connects the circuit only while it is pressed",["Stays on after pressing","Only breaks a circuit","Has no poles"]),
+M("Which is a benefit of using a microcontroller?","It can replace many single-purpose ICs",["It is cheaper than any IC","It cannot be programmed","It only does one job"]),
+F("A PIC is programmed from a computer using a ___ cable.",["usb","download"]),
+M("A PIR sensor triggers an automatic door to open for a few seconds. Which timer is this?","Monostable",["Astable","Analogue","Open loop"]),
+TF("Most output components, except lamps, have polarity.",true),
+M("Which output component needs very little power?","LED",["Heating element","Large motor","Electric heater"]),
+M("Frequency is measured in…","Hertz",["Volts","Ohms","Watts"]),
+M("An SPDT switch could be used to…","Switch between a red and a green bulb",["Only turn one bulb on and off","Detect heat","Store a number"]),
+F("1,000,000 cycles per second is one ___ (MHz).",["megahertz","mhz"]),
+TF("An open loop heater with no sensor keeps heating regardless of the room temperature.",true)
+],
+mechanical:[
+M("A cam follower that stays still is said to…","Dwell",["Rise","Fall","Oscillate"]),
+M("Which mechanism turns motion through 90°?","Bell crank",["Push/pull linkage","Idler gear","Chain and sprocket"]),
+TF("In a third-order lever the effort is between the fulcrum and the load.",true),
+M("Which mechanism does a car engine use?","Crank and slider",["Rack and pinion","Cam only","Bevel gear only"]),
+M("A driver gear has 60 teeth and the driven gear has 12 teeth. The driven gear…","Turns 5× faster",["Turns 5× slower","Turns at the same speed","Turns 12× faster"],"12 ÷ 60 = 1/5, so it turns 5× faster (with less torque)."),
+M("Why are belts reinforced with materials such as Kevlar?","To stop stretching and keep grip",["To make them heavier","To change colour","To make them melt"]),
+TF("Pulleys and belts work by friction, so they can slip.",true),
+M("Adding more pulleys to a lifting system gives…","More mechanical advantage, so less effort",["More effort","No change","A slower motor"]),
+M("Where is a rack and pinion used?","Pillar drills and car steering",["Digital watches","Sunglasses","Fire suits"]),
+F("Torque is the turning ___ that causes rotation.",["force"]),
+M("Which machine uses a chain and sprocket?","A bicycle",["Windscreen wipers","A hip implant","A pneumatic drill"]),
+TF("In a second-order lever the effort needed is smaller than the load.",true)
+]};
+T.forEach(t=>t.quiz.push(...(QX[t.id]||[])));
+
+/* ============ HELPERS ============ */
+const app = document.getElementById('app');
+const $ = (s,r=document)=>r.querySelector(s);
+const byId = id => T.find(t=>t.id===id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s).toLowerCase().replace(/[^a-z0-9.\-]/g,'').trim();
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+
+/* progress (localStorage; stored in this browser only) */
+function load(){ try{ return JSON.parse(localStorage.getItem('dtrev')||'{}'); }catch(e){ return {}; } }
+function save(p){ try{ localStorage.setItem('dtrev',JSON.stringify(p)); }catch(e){} }
+function prog(){ const p=load(); p.studied=p.studied||{}; p.scores=p.scores||{}; return p; }
+
+/* ============ VIEWS ============ */
+function home(){
+  const p=prog();
+  app.innerHTML=`<h1>Core Technical Principles</h1>
+  <p class="mute">AQA GCSE Design &amp; Technology (8552). Notes, quick quizzes and exam-style questions, built from your school PowerPoints and checked against the AQA specification.</p>
+  <div class="list" role="list">${T.map(t=>{
+    const s=p.scores[t.id]; const d=p.studied[t.id];
+    return `<a class="row" role="listitem" href="#/topic/${t.id}"><span>${esc(t.title)} <span class="tag">· spec ${t.spec}</span></span><span class="tag ${d?'done':''}">${d?'✓ studied':'not yet studied'}${s?` · last quiz ${s.last}/${s.total}`:''}</span></a>`}).join('')}</div>
+  <p class="mute" style="margin-top:2rem">Progress is saved in this browser only and does not sync between devices. <button id="reset">Reset progress</button></p>`;
+  $('#reset').onclick=()=>{ if(confirm('Reset all saved progress (studied topics and quiz scores)?')){ try{localStorage.removeItem('dtrev');}catch(e){} home(); } };
+}
+
+function topic(id){
+  const t=byId(id); if(!t) return notFound();
+  const p=prog();
+  app.innerHTML=`<p><a href="#/">← All topics</a></p><h1>${esc(t.title)}</h1><p class="mute">AQA spec ${t.spec}</p>
+  <div class="bar"><label><input type="checkbox" id="studied" ${p.studied[id]?'checked':''}> Mark as studied</label><a href="#/quiz/${id}"><button class="pri">Take the quiz</button></a></div>
+  ${t.notes}
+  <h2>Exam practice</h2>${examList(t.exam,t.title)}`;
+  $('#studied').onchange=e=>{ const q=prog(); q.studied[id]=e.target.checked; save(q); };
+}
+
+function examList(list,topicTitle){
+  return list.map(q=>{
+    const badge = q.src==='orig' ? '<span class="badge">Original, AQA-style (marks are my suggestion)</span>'
+      : '<span class="badge real">Adapted from AQA paper</span>';
+    const ref = q.ref ? `<p class="mute">Source: <a href="${q.ref.url}" target="_blank" rel="noopener">${esc(q.ref.label)}</a> – ${esc(q.refNote)}</p>` : '';
+    return `<div class="q">${badge}<span class="badge">${q.marks} mark${q.marks>1?'s':''}</span>${topicTitle?'':`<span class="badge">${esc(q.topic||'')}</span>`}
+    <p><b>${esc(q.q)}</b></p>
+    <label class="mute" for="a-${q.id}">Your answer (not saved or marked – attempt first, then reveal)</label>
+    <textarea id="a-${q.id}"></textarea>
+    <button data-reveal="${q.id}">Show model answer</button>
+    <div class="fb hide" id="m-${q.id}"><b>${q.src==='orig'?'Suggested answer':'Marking guidance (based on the AQA mark scheme)'}:</b><br>${esc(q.model)}</div>${ref}</div>`;
+  }).join('');
+}
+document.addEventListener('click',e=>{
+  const id=e.target.dataset&&e.target.dataset.reveal; if(!id) return;
+  const m=document.getElementById('m-'+id); m.classList.toggle('hide');
+  e.target.textContent = m.classList.contains('hide') ? 'Show model answer' : 'Hide model answer';
+});
+
+function quizzes(){
+  const p=prog();
+  app.innerHTML=`<h1>Quizzes</h1><p class="mute">15–18 questions per topic: multiple choice, true/false and fill in the blank. Question order and answer positions are shuffled each time.</p>
+  <div class="list">${T.map(t=>{const s=p.scores[t.id];return `<a class="row" href="#/quiz/${t.id}"><span>${esc(t.title)}</span><span class="tag">${t.quiz.length} questions${s?` · last ${s.last}/${s.total}, best ${s.best}/${s.total}`:''}</span></a>`}).join('')}</div>`;
+}
+
+function quiz(id){
+  const t=byId(id); if(!t) return notFound();
+  let qs=shuffle(t.quiz), i=0, wrong=[], score=0, round=0, firstRound=true, firstTotal=qs.length, firstScore=0;
+  function show(){
+    if(i>=qs.length) return done();
+    const q=qs[i];
+    let body='';
+    if(q.t==='mcq') body=shuffle(q.o.map((o,k)=>[o,k])).map(([o,k])=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join('');
+    else if(q.t==='tf') body=`<button class="opt" data-k="true">True</button><button class="opt" data-k="false">False</button>`;
+    else body=`<label class="mute" for="fillin">Type your answer</label><br><input type="text" id="fillin" autocomplete="off"> <button id="chk" class="pri">Check</button>`;
+    app.innerHTML=`<p><a href="#/quizzes">← Quizzes</a></p><h1>${esc(t.title)} – quiz</h1>
+    <p class="mute">Question ${i+1} of ${qs.length}${firstRound?'':' (retrying incorrect)'}</p>
+    <div class="q"><p><b>${esc(q.q)}</b></p><div id="ans">${body}</div><div id="fb"></div></div>`;
+    if(q.t==='fill'){ const f=$('#fillin'); f.focus(); f.onkeydown=e=>{if(e.key==='Enter')$('#chk').click();}; $('#chk').onclick=()=>{ const ok=q.a.some(a=>norm(a)===norm(f.value)); f.disabled=true; $('#chk').disabled=true; feedback(ok); }; }
+    else app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const k=b.dataset.k; const ok = q.t==='mcq' ? Number(k)===q.a : (k==='true')===q.a;
+      app.querySelectorAll('.opt').forEach(x=>{x.disabled=true; const kk=x.dataset.k; const isRight = q.t==='mcq'?Number(kk)===q.a:(kk==='true')===q.a; if(isRight)x.classList.add('right'); else if(x===b)x.classList.add('wrong');});
+      feedback(ok);
+    });
+  }
+  function feedback(ok){
+    const q=qs[i];
+    if(ok){score++; if(firstRound)firstScore++;} else wrong.push(q);
+    $('#fb').innerHTML=`<div class="fb ${ok?'ok':'no'}"><b>${ok?'Correct.':'Not quite.'}</b> ${q.t==='fill'&&!ok?'Accepted answer: <b>'+esc(q.a[0])+'</b>. ':''}${esc(q.e)}</div><button class="pri" id="next">${i+1>=qs.length?'See score':'Next'}</button>`;
+    $('#next').focus(); $('#next').onclick=()=>{i++;show();};
+  }
+  function done(){
+    if(firstRound){ const p=prog(); const old=p.scores[id]; p.scores[id]={last:firstScore,total:firstTotal,best:Math.max(firstScore,old?old.best:0)}; save(p); }
+    app.innerHTML=`<p><a href="#/quizzes">← Quizzes</a></p><h1>${esc(t.title)} – quiz</h1>
+    <div class="box"><h2 style="margin-top:0">${firstRound?`Score: ${firstScore} / ${firstTotal}`:`Retry round: ${score} / ${qs.length} correct`}</h2>
+    ${wrong.length?`<p>You got ${wrong.length} wrong. Retry them now?</p>`:'<p>All correct – nice.</p>'}
+    <div class="bar">${wrong.length?'<button class="pri" id="retry">Retry incorrect</button>':''}<button id="again">Restart quiz</button><a href="#/topic/${id}"><button>Back to notes</button></a></div></div>`;
+    if(wrong.length) $('#retry').onclick=()=>{ qs=shuffle(wrong); wrong=[]; i=0; score=0; firstRound=false; show(); };
+    $('#again').onclick=()=>quiz(id);
+  }
+  show();
+}
+
+function exam(){
+  const all=[]; T.forEach(t=>t.exam.forEach(q=>all.push(Object.assign({topic:t.title},q))));
+  app.innerHTML=`<h1>Exam Practice</h1>
+  <p class="mute">Write your answer first, then reveal the model answer. Questions marked <span class="badge real">Adapted</span> are based on the official AQA June 2022 8552/W paper (wording paraphrased, marks and guidance taken from AQA's published mark scheme – open the linked mark scheme and the original paper to see the exact question and any diagram). <span class="badge">Original</span> questions are written by me in AQA style; their marks and answers are my suggestions, not official.</p>
+  <div class="bar"><label>Topic <select id="f"><option value="">All topics</option>${T.map(t=>`<option value="${t.id}">${esc(t.title)}</option>`).join('')}</select></label>
+  <button id="rnd" class="pri">Random 5</button></div><div id="qs"></div>`;
+  const draw=list=>{ $('#qs').innerHTML=list.length?examList(list,''):'<p class="mute">No questions for that selection.</p>'; };
+  draw(all);
+  $('#f').onchange=e=>draw(e.target.value?all.filter(q=>byId(e.target.value).exam.some(x=>x.id===q.id)):all);
+  $('#rnd').onclick=()=>{ $('#f').value=''; draw(shuffle(all).slice(0,5)); };
+}
+
+function notFound(){ app.innerHTML='<h1>Page not found</h1><p><a href="#/">Back to topics</a></p>'; }
+
+function route(){
+  const h=location.hash.replace(/^#\/?/,'').split('/');
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.n===(h[0]===''?'home':h[0]==='topic'?'home':h[0]==='quiz'?'quizzes':h[0])));
+  window.scrollTo(0,0);
+  if(h[0]===''||h[0]===undefined) home();
+  else if(h[0]==='topic') topic(h[1]);
+  else if(h[0]==='quizzes') quizzes();
+  else if(h[0]==='quiz') quiz(h[1]);
+  else if(h[0]==='exam') exam();
+  else notFound();
+}
+const tb=$('#theme');
+function setTheme(t){ document.documentElement.dataset.theme=t; tb.textContent=t==='dark'?'☀ Light':'☾ Dark'; try{localStorage.setItem('dtheme',t);}catch(e){} }
+tb.textContent=document.documentElement.dataset.theme==='dark'?'☀ Light':'☾ Dark';
+tb.onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+window.addEventListener('hashchange',route); route();
+</script>
+</body>
+</html>
